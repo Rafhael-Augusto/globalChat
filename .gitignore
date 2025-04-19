@@ -1,0 +1,67 @@
+# =========================
+# Node / React / Vite
+# =========================
+node_modules/
+dist/
+.vite/
+.env
+.env.local
+.env.*.local
+*.log
+
+# Editor stuff
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+.env
+
+# Virtualenvs
+venv/
+env/
+.venv/
+.env/
+
+# Migrations (opcional, só se recriarem direto)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Gunicorn / Django Logs
+*.pid
+*.log
+instance/
+.webassets-cache
+
+# =========================
+# Others
+# =========================
+coverage/
+htmlcov/
+*.cover
+*.coverage
+.cache/
+.pytest_cache/
+
+# Test reports
+junit-*.xml
+nosetests.xml
+test-results/
+
