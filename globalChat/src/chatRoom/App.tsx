@@ -1,73 +1,136 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+
+import { useNavigate } from "react-router-dom"
 
 import TextModel from "../textModel/Model"
 
 import * as S from './styles'
 
+type InfoApi = {
+  id: number,
+  owner: number,
+  text: string,
+  attachment: File,
+  avatar: string,
+  owner_username: string
+}
+
 function App() {
-  const ApiHardcodded = [
-    {
-      id: 1,
-      message: 'Mensagem salva na API :)',
-      messageOwnerId: 1,
-      documentAttached: ''
-    },
-    {
-      id: 2,
-      message: 'Mensagem de alguem vinda da API :)',
-      messageOwnerId: 2,
-      documentAttached: ''
-    },
-    {
-      id: 3,
-      message: 'Resposta:)',
-      messageOwnerId: 1,
-      documentAttached: ''
-    },
-    {
-      id: 4,
-      message: 'Mensagem de alguem vinawdwa2qda da API :)',
-      messageOwnerId: 2,
-      documentAttached: ''
-    },
-  ]
+
+  const navigate = useNavigate()
 
   const [text, setText] = useState('')
-  const [fullText, setFullText] = useState<string[]>([])
+  const [messages, setMessages] = useState<InfoApi[]>([])
+  const [loaded, setLoaded] = useState(false)
+
+  const [id, setId] = useState(0)
 
   const CreateText = (e: React.FormEvent) => {
     e.preventDefault()
 
     if (text) {
-        setFullText([...fullText, text])
+        fetch('http://127.0.0.1:8000/api/messages/post/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: text,
+            owner_id: id,
+          })
+        })
+        .then((res) => res.json())
+        .then((data) => {console.log('Mensagem enviada', data);
+        })
+        .catch((err) => console.log('Erro ao enviar', err))
+
         setText('')
     }
   }
 
-  useEffect(() => {
+  const ScrollToBottom = () => {
     const container = document.getElementById('text-form')
 
-    if (container) {
-      container.scrollTop = container.scrollHeight
+        if (container) {
+          container.scrollTop = container.scrollHeight
+        }
+  }
+
+    useEffect(() => {
+      if (!loaded) {
+        setLoaded(true)
+
+        const token = localStorage.getItem('access_token')
+        const fetchInfo = async () => {
+          try {
+            const res = await fetch('http://127.0.0.1:8000/api/user-info/', {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
+              }
+            })
+
+            if (!res.ok) throw new Error('Erro na resposta da api o meu Deus do CEU')
+
+            const data = await res.json()
+            
+            setId(data.id)
+          } catch (err) {
+            console.error('erro ao buscar dados do usuario', err)
+            navigate('/chat')
+          }
+        }
+
+        fetchInfo()
+      }
+    }, [loaded, navigate])
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const res = await fetch('http://127.0.0.1:8000/api/messages/get/')
+        const data = await res.json()
+        setMessages(data)
+      } catch (err) {
+        console.error('erro ao buscar mensagems no banco de dados:', err)
+      }
     }
-  }, [fullText])
+
+    fetchMessages()
+
+    const interval = setInterval(fetchMessages, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const prevLength = useRef(0)
+
+  useEffect(() => {
+    if (messages.length > prevLength.current) {
+      ScrollToBottom()
+    }
+
+    prevLength.current = messages.length
+  }, [messages])
 
   return (
     <S.Wrapper>
       <S.Title>Public Chat</S.Title>
 
       <S.Messages id="text-form">
-      {ApiHardcodded.map((fullMessage) => (
-            <div key={fullMessage.id}>
-              <TextModel message={fullMessage.message} messageOwner={fullMessage.messageOwnerId} />
+      {messages.map((currentMessage) => {
+        return (
+          (
+            <div key={currentMessage.id}>
+              <TextModel message={currentMessage.text} ownername={currentMessage.owner_username} messageOwner={currentMessage.owner}/>
             </div>
           ))}
+        )
+      }
       </S.Messages>
 
       <S.Form onSubmit={(e) => (CreateText(e))}>
-        <S.AddDocumentButton htmlFor="add-file">+</S.AddDocumentButton>
-        <S.AddDocument id="add-file" type="file" />
-        <S.MessageBar placeholder="Enter your message" value={text} onChange={(e) => setText(e.target.value)} type="text" />
+        <S.MessageBar maxLength={500} placeholder="Enter your message" value={text} onChange={(e) => setText(e.target.value)} type="text" />
         <S.SendButton>Enviar</S.SendButton>
       </S.Form>
     </S.Wrapper>
