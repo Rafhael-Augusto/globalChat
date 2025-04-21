@@ -81,6 +81,10 @@ function Login() {
   refreshAccessToken()
   }, [navigate])
 
+  const register = () => {
+    navigate('/register')
+  }
+
   return (
     <S.Container>
       <S.LogInInfo onSubmit={(e) => Login(e)}>
@@ -99,7 +103,7 @@ function Login() {
 
         <S.ValidateForm>LOGIN</S.ValidateForm>
         <S.CreateAccount>
-          <button>Create account</button>
+          <button onClick={register}>Create account</button>
         </S.CreateAccount>
       </S.LogInInfo>
     </S.Container>

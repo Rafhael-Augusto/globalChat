@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,7 +78,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'messages',
         'USER': 'admin_user',
         'PASSWORD': 'admin_user',
         'HOST': 'localhost',
