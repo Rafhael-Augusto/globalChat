@@ -19,17 +19,20 @@ function Register() {
 
     if (password === rePassword && username) {
       const RegisterUser = async () => {
-        const response = await fetch("http://127.0.0.1:8000/api/register/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: username,
-            email: email,
-            password: password,
-          }),
-        });
+        const response = await fetch(
+          "https://globalchat-d93i.onrender.com/api/register/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: username,
+              email: email,
+              password: password,
+            }),
+          }
+        );
 
         const data = await response.json();
 

@@ -24,12 +24,15 @@ function PersonalProfile() {
     const token = localStorage.getItem("access_token");
     const fetchInfo = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/user-info/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          "https://globalchat-d93i.onrender.com/api/user-info/",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!res.ok)
           throw new Error("Erro na resposta da api o meu Deus do CEU");

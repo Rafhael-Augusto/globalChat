@@ -43,7 +43,7 @@ function App() {
           formData.append("attachment", attachment);
         }
 
-        fetch("http://127.0.0.1:8000/api/messages/post/", {
+        fetch("https://globalchat-d93i.onrender.com/api/messages/post/", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -76,7 +76,9 @@ function App() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/messages/get/");
+        const res = await fetch(
+          "https://globalchat-d93i.onrender.com/api/messages/get/"
+        );
         const data = await res.json();
         setMessages(data);
       } catch (err) {
