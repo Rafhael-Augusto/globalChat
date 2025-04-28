@@ -52,7 +52,7 @@ function OldMessageModel({ message, ownername, attachment }: prop) {
     };
 
     if (attachment) {
-      const attachmentUrl = `http://127.0.0.1:8000${attachment}`;
+      const attachmentUrl = `https://globalchat-d93i.onrender.com${attachment}`;
 
       const extension = attachmentUrl.split(".").pop()?.toLowerCase();
       const getAttachmentName = attachmentUrl.split("files/").pop();
@@ -82,7 +82,7 @@ function OldMessageModel({ message, ownername, attachment }: prop) {
         {inView && attachmentType === "image" ? (
           <S.ImageAttachment
             loading={"lazy"}
-            src={`http://127.0.0.1:8000${attachment}`}
+            src={`https://globalchat-d93i.onrender.com${attachment}`}
           />
         ) : inView && attachmentType == "video" ? (
           <S.VideoAttachment

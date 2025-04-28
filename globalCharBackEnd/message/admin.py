@@ -7,3 +7,4 @@ from message.models import Message
 class MessageAdmin(admin.ModelAdmin):
     list_display = ('owner_id', 'text', 'id', 'attachment')
     search_fields = ('owner_id',)
+

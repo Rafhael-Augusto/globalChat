@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-33lv+w%s3@16^q%ep-=38=)ygjo1-b!*x_!grz$q+!z+1op9*=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['global-chat-seven.vercel.app/']
 
 # Application definition
 
@@ -82,10 +82,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'messages',
         'USER': 'admin_user',
-        'PASSWORD': 'admin_user',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    },
+        'PASSWORD': 'npg_9WOYNxZkQ5uT',
+        'HOST': 'ep-winter-morning-ac6vi5r0-pooler.sa-east-1.aws.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
 }
 
 
@@ -145,3 +148,7 @@ SIMPLE_JWT = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CORS_ALLOWED_ORIGINS = [
+    "https://global-chat-seven.vercel.app",
+]

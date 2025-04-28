@@ -10,7 +10,7 @@ function OpenSettings() {
     if (e.target.files && e.target.files[0]) {
       formData.append("image", e.target.files[0]);
 
-      fetch("http://127.0.0.1:8000/api/upload-image/", {
+      fetch("https://globalchat-d93i.onrender.com/api/upload-image/", {
         method: "POST",
         body: formData,
         headers: {

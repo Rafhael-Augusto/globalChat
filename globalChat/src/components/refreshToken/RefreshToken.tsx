@@ -10,16 +10,19 @@ function RefreshToken() {
       const refresh = localStorage.getItem("refresh_token");
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/user-info/", {
-          headers: {
-            Authorization: `Bearer ${access}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          "https://globalchat-d93i.onrender.com/api/user-info/",
+          {
+            headers: {
+              Authorization: `Bearer ${access}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (res.status === 401 && refresh) {
           const refreshRes = await fetch(
-            "http://127.0.0.1:8000/api/token/refresh/",
+            "https://globalchat-d93i.onrender.com/api/token/refresh/",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

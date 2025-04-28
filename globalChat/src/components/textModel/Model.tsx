@@ -91,12 +91,15 @@ function TextModel({
     const token = localStorage.getItem("access_token");
     const fetchInfo = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/user-info/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+        const res = await fetch(
+          "https://globalchat-d93i.onrender.com/api/user-info/",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!res.ok)
           throw new Error("Erro na resposta da api o meu Deus do CEU");
@@ -129,15 +132,18 @@ function TextModel({
   const UpdateMessage = () => {
     setHideText(!hideText);
     const Update = () => {
-      fetch(`http://127.0.0.1:8000/api/messages/update/${messageid}/`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          text: editedMessage,
-        }),
-      });
+      fetch(
+        `https://globalchat-d93i.onrender.com/api/messages/update/${messageid}/`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: editedMessage,
+          }),
+        }
+      );
     };
 
     if (hideText) {
@@ -146,12 +152,15 @@ function TextModel({
   };
 
   const DeleteMessage = () => {
-    fetch(`http://127.0.0.1:8000/api/messages/delete/${messageid}/`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    fetch(
+      `https://globalchat-d93i.onrender.com/api/messages/delete/${messageid}/`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   return (
@@ -221,23 +230,23 @@ function TextModel({
         {inView && attachmentType === "image" ? (
           <S.ImageAttachment
             loading={"lazy"}
-            src={`http://127.0.0.1:8000${attachment}`}
+            src={`https://globalchat-d93i.onrender.com${attachment}`}
           />
         ) : inView && attachmentType == "video" ? (
           <S.VideoAttachment
             controls
             loop={true}
-            src={`http://127.0.0.1:8000${attachment}`}
+            src={`https://globalchat-d93i.onrender.com${attachment}`}
           />
         ) : inView && attachmentType == "audio" ? (
           <S.AudioAttachment
             controls
-            src={`http://127.0.0.1:8000${attachment}`}
+            src={`https://globalchat-d93i.onrender.com${attachment}`}
           />
         ) : inView && attachmentType == "pdf" ? (
           <S.ItemLink
             target="_blank"
-            href={`http://127.0.0.1:8000${attachment}`}
+            href={`https://globalchat-d93i.onrender.com${attachment}`}
           >
             {attachmentName}
           </S.ItemLink>
