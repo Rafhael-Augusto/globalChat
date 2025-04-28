@@ -1,6 +1,5 @@
 import json
 
-from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import generics
@@ -68,7 +67,7 @@ def get_user_info(request):
 
     return Response({
         'username': user.username,
-        'id': user.id
+        'id': user.id,
     })
 
 class RegisterView(APIView):

@@ -144,3 +144,27 @@ export const AddDocumentButton = styled.label`
 
   cursor: pointer;
 `;
+
+export const Settings = styled.img`
+  top: 0;
+  right: 0;
+  position: absolute;
+
+  background-color: transparent;
+  margin: 16px;
+
+  width: 38px;
+  height: 38px;
+
+  cursor: pointer;
+
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2) rotate(360deg);
+  }
+`;
+
+export const Container = styled.div`
+  position: relative;
+`;

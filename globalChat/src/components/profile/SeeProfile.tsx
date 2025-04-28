@@ -82,6 +82,7 @@ function SeeProfile() {
                 key={message.id}
                 message={message.text}
                 ownername={message.owner_username}
+                attachment={message.attachment}
               />
             );
           })}

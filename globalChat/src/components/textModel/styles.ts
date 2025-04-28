@@ -96,6 +96,8 @@ export const Avatar = styled.img`
   width: 32px;
   vertical-align: top;
 
+  object-fit: cover;
+
   margin: 4px;
   border-radius: 50%;
 

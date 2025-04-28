@@ -212,7 +212,7 @@ function TextModel({
         </h1>
         <S.Avatar
           src={
-            "https://tr.rbxcdn.com/180DAY-80fe87c42012957cd6e2c9dd75de797d/420/420/Face/Png/noFilter"
+            "https://i.pinimg.com/236x/d1/70/99/d17099bc26cf4cb9db8fbef0d6d6f8ca.jpg"
           }
           alt="Man face profile picture"
         />
