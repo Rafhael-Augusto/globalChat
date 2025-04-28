@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import TextModel from "../textModel/Model";
 
 import * as S from "./styles";
+import { useNavigate } from "react-router-dom";
 
 type InfoApi = {
   id: number;
@@ -19,6 +20,8 @@ function App() {
   const [messages, setMessages] = useState<InfoApi[]>([]);
 
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const navigate = useNavigate();
 
   const CreateText = (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,92 +153,100 @@ function App() {
   }, [attachment]);
 
   return (
-    <S.Wrapper>
-      <S.Title>Public Chat</S.Title>
+    <S.Container>
+      <S.Settings
+        onClick={() => navigate("/profile")}
+        src="https://images.icon-icons.com/1507/PNG/512/preferencesother_103775.png"
+        alt="Settings"
+      />
+      <S.Wrapper>
+        <S.Title>Public Chat</S.Title>
 
-      <S.Messages
-        style={{ scrollBehavior: isLoaded ? "smooth" : "unset" }}
-        id="text-form"
-      >
-        {messages.map((currentMessage) => {
-          return (
-            <div key={currentMessage.id}>
-              <TextModel
-                messageid={currentMessage.id}
-                message={currentMessage.text}
-                ownername={currentMessage.owner_username}
-                messageOwner={currentMessage.owner_id}
-                attachment={
-                  currentMessage.attachment
-                    ? currentMessage.attachment
-                    : undefined
-                }
-              />
-            </div>
-          );
-        })}
-      </S.Messages>
-
-      <S.Form
-        autoComplete="false"
-        id="message-form"
-        onSubmit={(e) => CreateText(e)}
-      >
-        <S.AddDocument
-          ref={selectFileRef}
-          onChange={(e) => {
-            if (e.target.files && !attachment) {
-              setAttachment(e.target.files?.[0]);
-              console.log(e.target.files[0]);
-            }
-          }}
-          type="file"
-          id="send-file"
-        />
-        <div
-          style={{
-            position: "relative",
-          }}
+        <S.Messages
+          style={{ scrollBehavior: isLoaded ? "smooth" : "unset" }}
+          id="text-form"
         >
-          <S.DocumentPreview style={{ display: attachment ? "block" : "none" }}>
-            {attachmentType === "image" ? (
-              <img
-                src={urlPreview ? urlPreview : undefined}
-                alt={attachment?.name}
-              />
-            ) : (
-              <video
-                muted={true}
-                autoPlay={true}
-                src={urlPreview ? urlPreview : undefined}
-              />
-            )}
-          </S.DocumentPreview>
+          {messages.map((currentMessage) => {
+            return (
+              <div key={currentMessage.id}>
+                <TextModel
+                  messageid={currentMessage.id}
+                  message={currentMessage.text}
+                  ownername={currentMessage.owner_username}
+                  messageOwner={currentMessage.owner_id}
+                  attachment={
+                    currentMessage.attachment
+                      ? currentMessage.attachment
+                      : undefined
+                  }
+                />
+              </div>
+            );
+          })}
+        </S.Messages>
 
-          <S.AddDocumentButton
-            onClick={() => {
-              if (attachment && selectFileRef.current) {
-                selectFileRef.current.value = "";
-                setAttachment(null);
-              } else {
-                selectFileRef.current?.click();
+        <S.Form
+          autoComplete="false"
+          id="message-form"
+          onSubmit={(e) => CreateText(e)}
+        >
+          <S.AddDocument
+            ref={selectFileRef}
+            onChange={(e) => {
+              if (e.target.files && !attachment) {
+                setAttachment(e.target.files?.[0]);
+                console.log(e.target.files[0]);
               }
             }}
+            type="file"
+            id="send-file"
+          />
+          <div
+            style={{
+              position: "relative",
+            }}
           >
-            {attachment ? "-" : "+"}
-          </S.AddDocumentButton>
-        </div>
-        <S.MessageBar
-          id="message-bar"
-          maxLength={500}
-          placeholder="Escreva sua mensagem"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-        />
-        <S.SendButton>Enviar</S.SendButton>
-      </S.Form>
-    </S.Wrapper>
+            <S.DocumentPreview
+              style={{ display: attachment ? "block" : "none" }}
+            >
+              {attachmentType === "image" ? (
+                <img
+                  src={urlPreview ? urlPreview : undefined}
+                  alt={attachment?.name}
+                />
+              ) : (
+                <video
+                  muted={true}
+                  autoPlay={true}
+                  src={urlPreview ? urlPreview : undefined}
+                />
+              )}
+            </S.DocumentPreview>
+
+            <S.AddDocumentButton
+              onClick={() => {
+                if (attachment && selectFileRef.current) {
+                  selectFileRef.current.value = "";
+                  setAttachment(null);
+                } else {
+                  selectFileRef.current?.click();
+                }
+              }}
+            >
+              {attachment ? "-" : "+"}
+            </S.AddDocumentButton>
+          </div>
+          <S.MessageBar
+            maxLength={500}
+            placeholder="Escreva sua mensagem"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            type="text"
+          />
+          <S.SendButton>Enviar</S.SendButton>
+        </S.Form>
+      </S.Wrapper>
+    </S.Container>
   );
 }
 

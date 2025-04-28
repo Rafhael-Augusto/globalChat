@@ -12,6 +12,7 @@ import PrivateRoute from "./components/privateRoute/PrivateRoute.tsx";
 import RefreshToken from "./components/refreshToken/RefreshToken.tsx";
 import Register from "./components/register/Register.tsx";
 import SeeProfile from "./components/profile/SeeProfile.tsx";
+import PersonalProfile from "./components/personalProfile/PersonalProfile.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -38,6 +39,15 @@ createRoot(document.getElementById("root")!).render(
           element={
             <PrivateRoute>
               <SeeProfile />
+            </PrivateRoute>
+          }
+        ></Route>
+
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <PersonalProfile />
             </PrivateRoute>
           }
         ></Route>

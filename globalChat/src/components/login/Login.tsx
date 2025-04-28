@@ -108,6 +108,7 @@ function Login() {
             value={username}
             type="text"
             placeholder="USERNAME"
+            maxLength={20}
           />
         </S.ImageDiv>
         <S.ImageDiv>

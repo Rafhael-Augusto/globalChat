@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
+  margin-left: 8px;
 
   & > h2 {
     text-align: start;
@@ -42,19 +43,45 @@ export const Wrapper = styled.div`
       max-width: 70%;
     }
 
-    & > img {
-      display: inline-block;
-      height: 32px;
-      width: 32px;
-      vertical-align: top;
-
-      margin: 4px;
-      border-radius: 50%;
-
-      background-color: white;
-    }
-
     opacity: 1;
     transition: opacity 0.1s ease-in;
   }
+`;
+
+export const ProfilePicture = styled.img`
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  vertical-align: top;
+
+  margin: 4px;
+  border-radius: 50%;
+
+  background-color: white;
+`;
+
+export const ImageAttachment = styled.img`
+  max-height: 280px;
+  max-width: 280px;
+  border-radius: 8px;
+  border: 2px solid #0c1119;
+`;
+
+export const VideoAttachment = styled.video`
+  max-height: 280px;
+  max-width: 280px;
+  border-radius: 8px;
+  border: 2px solid #0c1119;
+`;
+
+export const AudioAttachment = styled.audio`
+  max-height: 280px;
+  max-width: 280px;
+`;
+
+export const ItemLink = styled.a`
+  background-color: #0c1119;
+  padding: 8px;
+  border-radius: 8px;
+  color: cyan;
 `;
