@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-33lv+w%s3@16^q%ep-=38=)ygjo1-b!*x_!grz$q+!z+1op9*=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['globalchat-d93i.onrender.com', 'global-chat-seven.vercel.app/']
+ALLOWED_HOSTS = ['global-chat-seven.vercel.app/']
 
 # Application definition
 
