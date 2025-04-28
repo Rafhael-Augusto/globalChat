@@ -1,37 +1,47 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import App from './chatRoom/App.tsx'
+import App from "./components/chatRoom/App.tsx";
 
-import GlobalStyle from './GlobalStyles.ts'
-import Login from './login/Login.tsx'
+import GlobalStyle from "./GlobalStyles.ts";
+import Login from "./components/login/Login.tsx";
 
-import PrivateRoute from './privateRoute/PrivateRoute.tsx'
-import RefreshToken from './refreshToken/RefreshToken.tsx'
-import Register from './register/Register.tsx'
+import PrivateRoute from "./components/privateRoute/PrivateRoute.tsx";
+import RefreshToken from "./components/refreshToken/RefreshToken.tsx";
+import Register from "./components/register/Register.tsx";
+import SeeProfile from "./components/profile/SeeProfile.tsx";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <GlobalStyle />
-    
+
     <Router>
       <RefreshToken />
 
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        <Route path='/chat' element={<PrivateRoute>
-           <App />
-        </PrivateRoute>} ></Route>
+        <Route
+          path="/chat"
+          element={
+            <PrivateRoute>
+              <App />
+            </PrivateRoute>
+          }
+        ></Route>
 
+        <Route
+          path="/profile/:id"
+          element={
+            <PrivateRoute>
+              <SeeProfile />
+            </PrivateRoute>
+          }
+        ></Route>
       </Routes>
     </Router>
-  </StrictMode>,
-)
+  </StrictMode>
+);
