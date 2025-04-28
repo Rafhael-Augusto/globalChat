@@ -82,10 +82,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'messages',
         'USER': 'admin_user',
-        'PASSWORD': 'admin_user',
-        'HOST': 'localhost',
-        'PORT': '5432'
-    },
+        'PASSWORD': 'npg_9WOYNxZkQ5uT',
+        'HOST': 'ep-winter-morning-ac6vi5r0-pooler.sa-east-1.aws.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
+    }
 }
 
 
