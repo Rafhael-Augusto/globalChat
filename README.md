@@ -31,7 +31,7 @@ DB_NAME=messages
 DB_USER=**seu usuário psql**
 DB_PASSWORD=**senha do banco de dados**
 DB_HOST=db
-DB_PORT=5432
+DB_PORT=5433
 ```
 4. Build usando Docker, no terminal na pasta globalChat:
 ```
