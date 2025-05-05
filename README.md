@@ -25,7 +25,7 @@ DB_NAME=messages
 DB_USER=**seu usuário**
 DB_PASSWORD=**senha do banco de dados**
 DB_HOST=db
-DB_PORT=5433
+DB_PORT=5432
 ```
 3. Build usando Docker, no terminal na pasta globalChat:
 ```
