@@ -22,14 +22,15 @@ cd globalChat
    Dentro desse arquivo, cole o seguinte:
 ```
 DB_NAME=messages
-DB_USER=**seu usuário**
-DB_PASSWORD=**senha do banco de dados**
+DB_USER=seu usuário
+DB_PASSWORD=senha do banco de dados
 DB_HOST=db
 DB_PORT=5432
 ```
 ### 3. Build usando Docker, no terminal na pasta globalChat:
 ```
 docker-compose build
+&&
 docker-compose up
 ```
 ### 4. Migrações do banco de dados:
@@ -41,6 +42,7 @@ docker-compose up
    Cole os comandos abaixo:
 ```
 docker-compose exec backend python manage.py makemigrations
+&&
 docker-compose exec backend python manage.py migrate
 ```
 ### 5. Acesse o front-end e o back-end:
