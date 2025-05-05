@@ -22,7 +22,7 @@ cd globalChat
    Dentro desse arquivo, cole o seguinte:
 ```
 DB_NAME=messages
-DB_USER=**seu usuário psql**
+DB_USER=**seu usuário**
 DB_PASSWORD=**senha do banco de dados**
 DB_HOST=db
 DB_PORT=5433
