@@ -46,7 +46,8 @@ function RefreshToken() {
       }
     };
 
-    const interval = setInterval(fetchUserInfo, 40000);
+    fetchUserInfo();
+    const interval = setInterval(fetchUserInfo, 10000);
 
     return () => clearInterval(interval);
   });

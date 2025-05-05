@@ -65,7 +65,7 @@ function SeeProfile() {
             src={
               avatar
                 ? URL.createObjectURL(avatar)
-                : "https://media.tenor.com/3_HgqppkCwUAAAAM/egg-dancing.gif"
+                : "https://i.pinimg.com/236x/d1/70/99/d17099bc26cf4cb9db8fbef0d6d6f8ca.jpg"
             }
             alt="PFP"
           />
