@@ -16,7 +16,7 @@ function Login() {
     setLogged("");
 
     if (username && password) {
-      fetch("https://globalchat-d93i.onrender.com/api/token/", {
+      fetch("http://localhost:8000/api/token/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function Login() {
       if (refresh) {
         try {
           const response = await fetch(
-            "https://globalchat-d93i.onrender.com/api/token/refresh/",
+            "http://localhost:8000/api/token/refresh/",
             {
               method: "POST",
               headers: {
