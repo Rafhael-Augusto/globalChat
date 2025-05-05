@@ -1,44 +1,77 @@
-Como rodar o projeto:
+# Global Chat
 
-1- Crie uma pasta e faca o clone do projeto, no terminal:
+Minha primeira tentativa em criar um chat global
 
+## Como rodar o projeto:
+
+### 1. Crie uma pasta e faça o clone do projeto, no terminal:
+
+```
 mkdir chatGlobal
 cd chatGlobal
 git clone git@github.com:Rafhael-Augusto/globalChat.git
 cd globalChat
-
-2- Crie um banco de dados, no terminal:
- 
+```
+2. Crie um banco de dados, no terminal:
+```
 sudo -u postgres psql
 CREATE DATABASE messages;
 \q
+```
 
-3- Crie o arquivo .env no back end
+3. Crie o arquivo .env no back-end:
 
-entre na pasta chatGlobal > globalCharBackEnd
-crie um arquivo chamado '.env' ( sem aspas )
+   Entre na pasta chatGlobal > globalCharBackEnd
+   
+   Crie um arquivo chamado '.env' (sem aspas)
 
-dentro desse arquivo, cole o seguinte:
-
+   Dentro desse arquivo, cole o seguinte:
+```
 DB_NAME=messages
-DB_USER=**seu usuario psql**
+DB_USER=**seu usuário psql**
 DB_PASSWORD=**senha do banco de dados**
 DB_HOST=db
-DB_POST=5432
-
-3- Build usando docker, no terminal na pasta 'globalChat':
-
+DB_PORT=5432
+```
+4. Build usando Docker, no terminal na pasta globalChat:
+```
 docker-compose build
 docker-compose up
+```
+5. Migrações do banco de dados:
 
-4- Migracoes do bando de dados:
+   Abra outro terminal
+   
+   Use cd para ir para a pasta globalChat no novo terminal
+   
+   Cole os comandos abaixo:
+```
+docker-compose exec backend python manage.py makemigrations
+docker-compose exec backend python manage.py migrate
+```
+6. Acesse o front-end e o back-end:
+```
+Front-end: http://localhost:3000/
+Back-end: http://localhost:8000/
+```
+Tecnologias utilizadas:
 
-abra outro terminal
-use cd para ir para a pasta 'globalChat' no novo terminal
-cole o comando: docker-compose exec backend python manage.py makemigrations
-em seguida, cole: docker-compose exec backend python manage.py migrate
+React Vite
 
-5- Clique nos links para acessar o Front end e o Back end:
+TypeScript
 
-Front end: http://localhost:3000/
-Back end: http://localhost:8000/
+Styled Components
+
+React Router DOM
+
+Consumo de API
+
+Django
+
+PostgreSQL
+
+JSON Web Tokens (JWT)
+
+Docker
+
+Docker Compose
