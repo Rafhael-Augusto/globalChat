@@ -8,7 +8,7 @@ services:
     volumes:
       - ./globalCharBackEnd:/app
     env_file:
-      - ./globalCharBackEnd/.env
+      - ./.env
     depends_on:
       - db
 
@@ -22,11 +22,11 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: messages
-      POSTGRES_USER: admin_user
-      POSTGRES_PASSWORD: senha_segura
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
