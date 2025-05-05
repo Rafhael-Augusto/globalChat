@@ -73,6 +73,7 @@ Docker
 
 Docker Compose
 
+--
 
 IMAGENS UTILIZADAS:
 
