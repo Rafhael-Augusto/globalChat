@@ -8,7 +8,7 @@ git clone git@github.com:Rafhael-Augusto/globalChat.git
 cd globalChat
 
 2- Crie um banco de dados, no terminal:
-
+ 
 sudo -u postgres psql
 CREATE DATABASE messages;
 \q
