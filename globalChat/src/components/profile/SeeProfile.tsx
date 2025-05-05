@@ -26,9 +26,7 @@ function SeeProfile() {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await fetch(
-          "https://globalchat-d93i.onrender.com/api/messages/get/"
-        );
+        const res = await fetch("http://localhost:8000/api/messages/get/");
         const data = await res.json();
         setUserInfos(data);
       } catch (err) {
