@@ -86,7 +86,7 @@ function App() {
 
     fetchMessages();
 
-    const interval = setInterval(fetchMessages, 100);
+    const interval = setInterval(fetchMessages, 1000);
 
     return () => clearInterval(interval);
   }, []);
