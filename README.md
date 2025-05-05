@@ -35,6 +35,8 @@ docker-compose up
 ```
 ### 4. Migrações do banco de dados:
 
+   Quando terminar de fazer a build,
+
    Abra outro terminal
    
    Use cd para ir para a pasta globalChat no novo terminal
