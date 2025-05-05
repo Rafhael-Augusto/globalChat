@@ -13,7 +13,7 @@ git clone git@github.com:Rafhael-Augusto/globalChat.git
 cd globalChat
 ```
 
-2. Crie o arquivo .env no back-end:
+### 2. Crie o arquivo .env no back-end:
 
    Entre na pasta chatGlobal
    
@@ -27,12 +27,12 @@ DB_PASSWORD=**senha do banco de dados**
 DB_HOST=db
 DB_PORT=5432
 ```
-3. Build usando Docker, no terminal na pasta globalChat:
+### 3. Build usando Docker, no terminal na pasta globalChat:
 ```
 docker-compose build
 docker-compose up
 ```
-4. Migrações do banco de dados:
+### 4. Migrações do banco de dados:
 
    Abra outro terminal
    
@@ -43,13 +43,33 @@ docker-compose up
 docker-compose exec backend python manage.py makemigrations
 docker-compose exec backend python manage.py migrate
 ```
-5. Acesse o front-end e o back-end:
+### 5. Acesse o front-end e o back-end:
 
-Front-end: http://localhost:3000/
+   Front-end: http://localhost:3000/
+   
+   Back-end: http://localhost:8000/
 
-Back-end: http://localhost:8000/
+### 6. Abrir o banco de dados usando DBeaver (opcional) 
 
---
+-- Abra o DBeaver e crie uma nova conexão PostgreSQL
+
+-- Em 'Port' coloque o valor como 5433
+
+-- Em 'Username' coloque o nome que você colocou em DB_USER no .env
+
+-- Em 'Password' coloque a senha que você colocou em DB_PASSWORD no .env
+
+-- Selecione a caixinha 'Show all databases' abaixo de 'Port'
+
+-- Clique em 'Finish'
+
+-- Abra a database 'messages' > 'Schemas' > 'public' > 'Tables' > 'message_message' (duplo clique)
+
+-- Sempre que uma nova mensagem for enviada, clique com o botão direito e clique em 'Refresh' para visualizar.
+
+
+----------
+
 
 Tecnologias utilizadas:
 
