@@ -42,7 +42,3 @@ em seguida, cole: docker-compose exec backend python manage.py migrate
 
 Front end: http://localhost:3000/
 Back end: http://localhost:8000/
-
-6- Pronto
-
-https://media.tenor.com/TYGaQfylEvQAAAAe/auque-7-dias-tarde.png
