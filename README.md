@@ -72,3 +72,15 @@ JSON Web Tokens (JWT)
 Docker
 
 Docker Compose
+
+
+IMAGENS UTILIZADAS:
+
+https://icon-icons.com/icon/email-envelope-outline-shape-with-rounded-corners/56530
+
+https://icon-icons.com/icon/username-user/97587
+
+https://icon-icons.com/icon/key-silhouette-security-tool-interface-symbol-of-password/54503
+
+https://br.pinterest.com/joanaloly21/perfil-do-tik-tok/
+
