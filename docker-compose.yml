@@ -1,24 +1,34 @@
-version: '3.9'
+version: "3.9"
 
 services:
   backend:
-    build:
-      context: ./globalCharBackEnd
-      dockerfile: Dockerfile
-    image: globalchat-backend
+    build: ./globalCharBackEnd
     ports:
       - "8000:8000"
     volumes:
       - ./globalCharBackEnd:/app
     env_file:
       - ./globalCharBackEnd/.env
+    depends_on:
+      - db
 
   frontend:
-    build:
-      context: ./globalChat
-      dockerfile: Dockerfile
-    image: globalchat-frontend
+    build: ./globalChat
     ports:
       - "3000:80"
     depends_on:
       - backend
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: messages
+      POSTGRES_USER: admin_user
+      POSTGRES_PASSWORD: senha_segura
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
