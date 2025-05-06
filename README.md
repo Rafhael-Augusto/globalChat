@@ -74,6 +74,21 @@ docker-compose exec backend python manage.py migrate
 
 ----------
 
+### Funcionalidades:
+
+Login e registro com autenticação via JWT,
+
+Enviar, editar e deletar mensagens,
+
+Enviar imagens, gifs, videos, pdfs com uma preview simples,
+
+Ver perfil e ultimas mensagens enviadas,
+
+Organização em containers separados para frontend, backend e banco de dados,
+
+Configuração com Nginx como proxy reverso
+
+----------
 
 Tecnologias utilizadas:
 
