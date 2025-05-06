@@ -39,7 +39,7 @@ docker-compose up
 
    Abra outro terminal
    
-   Use cd para ir para a pasta globalChat no novo terminal
+   Use cd para ir para a pasta globalChat novamente usando o novo terminal
    
    Cole os comandos abaixo:
 ```
