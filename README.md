@@ -5,7 +5,7 @@ Minha primeira tentativa em criar um chat global
 ## Como rodar o projeto:
 
 ### 1. Crie uma pasta e faça o clone do projeto, no terminal:
-
+   Deixe o Docker Desktop rodando
 ```
 mkdir chatGlobal
 cd chatGlobal
