@@ -15,7 +15,7 @@ cd globalChat
 
 ### 2. Crie o arquivo .env no back-end:
 
-   Entre na pasta chatGlobal
+   Entre na pasta chatGlobal > globalChat
    
    Crie um arquivo chamado '.env' (sem aspas)
 
