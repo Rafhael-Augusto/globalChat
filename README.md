@@ -47,7 +47,7 @@ docker-compose exec backend python manage.py makemigrations
 &&
 docker-compose exec backend python manage.py migrate
 ```
-### 5. Acesse o front-end e o back-end:
+### 5. Front e back end:
 
    Front-end: http://localhost:3000/
    
