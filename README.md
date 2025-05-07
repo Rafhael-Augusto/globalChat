@@ -122,5 +122,5 @@ https://icon-icons.com/icon/username-user/97587
 
 https://icon-icons.com/icon/key-silhouette-security-tool-interface-symbol-of-password/54503
 
-https://br.pinterest.com/joanaloly21/perfil-do-tik-tok/
+https://br.pinterest.com/pin/617696905135425037/
 
